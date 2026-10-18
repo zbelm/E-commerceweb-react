@@ -6,7 +6,6 @@ import OrderSummary from '../components/OrderSummary'
 function Checkout({ cart, placeOrder }) {
   const navigate = useNavigate()
 
-  // controlled form, all inputs are saved in this state
   const [form, setForm] = useState({
     fullName: '',
     email: '',
@@ -19,11 +18,9 @@ function Checkout({ cart, placeOrder }) {
   function handleChange(e) {
     const { name, value } = e.target
     setForm({ ...form, [name]: value })
-    // remove the error message of the field while typing
     setErrors({ ...errors, [name]: '' })
   }
 
-  // custom javascript validation
   function validate() {
     const newErrors = {}
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -68,7 +65,6 @@ function Checkout({ cart, placeOrder }) {
     const newErrors = validate()
     setErrors(newErrors)
 
-    // if there are errors, do not submit
     if (Object.keys(newErrors).length > 0) {
       return
     }

@@ -5,7 +5,6 @@ function ProductDetails({ products, addToCart }) {
   const { id } = useParams()
   const navigate = useNavigate()
 
-  // find the product using the id from the url
   const product = products.find((p) => p.id === Number(id))
 
   if (!product) {

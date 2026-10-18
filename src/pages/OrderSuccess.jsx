@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import OrderSummary from '../components/OrderSummary'
 
 function OrderSuccess({ orders }) {
-  // get the latest order
   const order = orders[orders.length - 1]
 
   if (!order) {

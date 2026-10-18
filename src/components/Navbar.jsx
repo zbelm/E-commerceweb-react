@@ -1,7 +1,6 @@
 import { Link, NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-// cartCount = 0 is the default value if no prop is passed
 function Navbar({ cartCount = 0 }) {
   return (
     <nav className="navbar">

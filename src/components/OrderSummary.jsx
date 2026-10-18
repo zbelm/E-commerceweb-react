@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 
-// small box that shows the items and total, used in checkout and order success page
 function OrderSummary({ items, title = 'Order Summary' }) {
   const total = items.reduce((sum, item) => sum + item.price * item.quantity, 0)
 

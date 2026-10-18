@@ -1,4 +1,3 @@
-// hardcoded list of products (no database)
 const products = [
   {
     id: 1,

@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 
 function Pagination({ currentPage, totalPages, setCurrentPage }) {
-  // make an array of page numbers [1, 2, 3 ...]
   const pages = []
   for (let i = 1; i <= totalPages; i++) {
     pages.push(i)

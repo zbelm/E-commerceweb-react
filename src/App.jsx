@@ -11,12 +11,10 @@ import NotFound from './pages/NotFound'
 import productData from './data/products'
 
 function App() {
-  // all the data is saved here using useState only
   const [products, setProducts] = useState(productData)
   const [cart, setCart] = useState([])
   const [orders, setOrders] = useState([])
 
-  // add product to cart, if already in cart just add 1 to quantity
   function addToCart(product) {
     const found = cart.find((item) => item.id === product.id)
 
@@ -61,7 +59,6 @@ function App() {
     setCart(cart.filter((item) => item.id !== id))
   }
 
-  // called when checkout form is submitted successfully
   function placeOrder(customer) {
     const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
 
@@ -73,7 +70,6 @@ function App() {
       date: new Date().toLocaleString(),
     }
 
-    // lessen the stock of the products that were bought
     setProducts(
       products.map((p) => {
         const bought = cart.find((item) => item.id === p.id)
@@ -85,11 +81,10 @@ function App() {
     )
 
     setOrders([...orders, newOrder])
-    setCart([]) // clear the cart after ordering
+    setCart([])
     return newOrder
   }
 
-  // count all the items in the cart (for the cart counter)
   const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0)
 
   return (

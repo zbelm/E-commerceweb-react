@@ -11,7 +11,6 @@ function Home({ products, addToCart }) {
   const [category, setCategory] = useState('All')
   const [currentPage, setCurrentPage] = useState(1)
 
-  // get the list of categories from the products (no duplicates)
   const categories = []
   products.forEach((p) => {
     if (!categories.includes(p.category)) {
@@ -19,19 +18,16 @@ function Home({ products, addToCart }) {
     }
   })
 
-  // filter by search text and category
   const filteredProducts = products.filter((p) => {
     const matchSearch = p.name.toLowerCase().includes(search.toLowerCase())
     const matchCategory = category === 'All' || p.category === category
     return matchSearch && matchCategory
   })
 
-  // pagination
   const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE)
   const start = (currentPage - 1) * ITEMS_PER_PAGE
   const productsToShow = filteredProducts.slice(start, start + ITEMS_PER_PAGE)
 
-  // go back to page 1 every time the search or category changes
   function handleSearch(value) {
     setSearch(value)
     setCurrentPage(1)
